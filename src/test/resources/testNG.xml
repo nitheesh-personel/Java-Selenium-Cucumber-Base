@@ -1,0 +1,7 @@
+<suite name="Suite1" verbose="1" >
+    <test name="RunnerExample" >
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+</suite>
