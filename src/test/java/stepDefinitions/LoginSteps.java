@@ -24,20 +24,29 @@ public class LoginSteps {
         driver.quit();    //closes the browser after login feature file steps
     }
 
-    @Given("I open the page")
+    @Given("user opens the login page")
     public void iOpenThePage() {
         driver.get("https://the-internet.herokuapp.com/login");
     }
 
-    @Then("I click the button")
-    public void iClickTheButton() {
+    @Then("user enters username and password")
+    public void iEnterNamePassword() {
         loginPage.enterUsername("tomsmith");
         loginPage.enterPassword("SuperSecretPassword!");
+    }
+
+    @Then("user clicks login")
+    public void iClickLoginButton() {
         loginPage.clickLogin();
     }
 
-    @Then("I landed the page")
+    @Then("user lands on the page")
     public void iLandedThePage() {
         loginPage.verifyDashboard();
+    }
+
+    @Then("user verifies the landing page messages")
+    public void userVerifiesTheLandingPageMessages() {
+        loginPage.verifyLandingPageMessages();
     }
 }
