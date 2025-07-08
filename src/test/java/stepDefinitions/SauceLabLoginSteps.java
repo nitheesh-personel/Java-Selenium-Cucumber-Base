@@ -5,12 +5,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import java.util.Objects;
 
 public class SauceLabLoginSteps {
     WebDriver driver = DriverManager.getDriver();
@@ -34,20 +31,10 @@ public class SauceLabLoginSteps {
     @And("user clicks on login button")
     public void userClicksOnLoginButton() {
         sauceLabLogin.clickLogin();
-
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-            wait.until(ExpectedConditions.alertIsPresent());
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            System.out.println("Alert accepted.");
-        } catch (Exception e) {
-            System.out.println("No alert present.");
-        }
     }
 
-    @Then("user verifies the landing page")
-    public void userVerifiesTheLandingPage() {
+    @Then("user verifies the landing tab")
+    public void userVerifiesTheLandingTab() {
         sauceLabLogin.verifyLandingPage();
     }
 
@@ -64,5 +51,11 @@ public class SauceLabLoginSteps {
     @Then("user verifies the invalid login error modal is closed")
     public void userVerifiesTheInvalidLoginErrorModalIsClosed() {
         sauceLabLogin.verifyInvalidErrorModalClose();
+    }
+
+    @Then("user clicks on navigate {string} button")
+    public void userClicksOnNavigateButton(String option) {
+        if(Objects.equals(option, "back"))  driver.navigate().back();
+        else driver.navigate().forward();
     }
 }
