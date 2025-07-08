@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/resources/features/VerifyCloseLoginError.feature",  // Path to feature files
+        features = "src/test/resources/features/VerifySorting.feature",  // Path to feature files
         glue = {"stepDefinitions"},  // Package containing step definitions
         plugin = {
                 "pretty",  // Prints Gherkin steps in console

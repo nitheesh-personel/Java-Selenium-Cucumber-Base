@@ -6,7 +6,7 @@ Feature: F1
       When user enters the username "standard_user"
       And user enters the password "secret_sauce"
       And user clicks on login button
-      Then user verifies the landing page
+      Then user verifies the landing tab
 
     Scenario: Verification of the Sauce Labs Invalid Login message
       When user enters the username "standard_use"
